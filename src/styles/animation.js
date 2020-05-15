@@ -12,5 +12,16 @@ const fadeInKeyframes = keyframes`
   }
 `
 
-export const fadeIn = ({ time = '1s', type = 'ease' } = {}) =>
-  css`animation: ${time} ${fadeInKeyframes} ${type};`
+export const fadeIn = ({ time = '1s', type = 'ease' } = {}) => css`animation: ${time} ${fadeInKeyframes} ${type};`
+
+const rotateKeyframe = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+      transform: rotate(360deg);
+  }
+`
+
+export const rotate = () => css`animation: 1.2s ${rotateKeyframe} linear infinite`

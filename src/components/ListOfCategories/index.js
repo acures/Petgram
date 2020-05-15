@@ -1,19 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Category } from '../Category'
+import { Loader } from '../Loader'
 import { List, Item } from './styles'
+import { useCategoriesData } from '../../hooks/useCategoriesData'
 
 export const ListOfCategories = () => {
-  const [categories, setCategories] = useState([])
   const [showFixed, setShowFixed] = useState(false)
-
-  // Fetching Categories
-  useEffect(() => {
-    window.fetch('https://petgram-server-acures-3igqjnh6n.now.sh/categories')
-      .then(res => res.json())
-      .then(response => {
-        setCategories(response)
-      })
-  }, [])
+  const { categories, loading } = useCategoriesData()
 
   // Handle Scrolling
   useEffect(() => {
@@ -30,13 +23,15 @@ export const ListOfCategories = () => {
   }, [showFixed])
 
   const renderList = (fixed) => (
-    <List className={fixed ? 'fixed' : ''}>
+    <List fixed={fixed}>
       {
-        categories.map(category => (
-          <Item key={category.id}>
-            <Category {...category} />
-          </Item>
-        ))
+        loading
+          ? [1, 2, 3, 4, 5, 6, 7].map(load => <Loader key={load} />)
+          : categories.map(category => (
+            <Item key={category.id}>
+              <Category {...category} />
+            </Item>
+          ))
       }
     </List>
   )

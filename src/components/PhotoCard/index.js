@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { MdFavoriteBorder } from 'react-icons/md'
 import { ImgWrapper, Img, Button, Article } from './styles'
 import { useLazyLoad } from '../../hooks/useLazyLoad'

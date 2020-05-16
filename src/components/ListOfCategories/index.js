@@ -4,6 +4,8 @@ import { Loader } from '../Loader'
 import { List, Item } from './styles'
 import { useCategoriesData } from '../../hooks/useCategoriesData'
 
+const DEFAULT_CATEGORIES = [1, 2, 3, 4, 5, 6]
+
 export const ListOfCategories = () => {
   const [showFixed, setShowFixed] = useState(false)
   const { categories, loading } = useCategoriesData()
@@ -26,7 +28,7 @@ export const ListOfCategories = () => {
     <List fixed={fixed}>
       {
         loading
-          ? [1, 2, 3, 4, 5, 6, 7].map(load => <Loader key={load} />)
+          ? DEFAULT_CATEGORIES.map(load => <Loader key={load} />)
           : categories.map(category => (
             <Item key={category.id}>
               <Category {...category} />

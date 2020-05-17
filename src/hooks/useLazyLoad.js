@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
-export const useLazyLoad = ref => {
+export const useLazyLoad = () => {
+  const ref = useRef(null)
   const [show, setShow] = useState(false)
 
   useEffect(() => {
@@ -20,5 +21,5 @@ export const useLazyLoad = ref => {
       })
   }, [ref])
 
-  return { show }
+  return [show, ref]
 }

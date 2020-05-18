@@ -6,7 +6,7 @@ import { useLocalStorage } from '../../hooks/useLocalStorage'
 
 const DEFAULT_IMG = 'https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png'
 
-export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMG }) => {
+export const PhotoCardComponent = ({ id, likes = 0, src = DEFAULT_IMG }) => {
   const [show, ref] = useLazyLoad()
   const key = `like-${id}`
   const [liked, setLiked] = useLocalStorage(key, false)
@@ -18,7 +18,7 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMG }) => {
       {
         show && (
           <>
-            <a href={`/detail/${id}`}>
+            <a href={`/?detail=${id}`}>
               <ImgWrapper>
                 <Img src={src} />
               </ImgWrapper>

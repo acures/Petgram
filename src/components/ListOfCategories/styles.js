@@ -3,8 +3,9 @@ import { fadeIn } from '../../styles/animation'
 
 export const List = styled.ul`
   display: flex;
-  overflow: hidden;
+  overflow-y: hidden;
   width: 100%;
+  margin-bottom: 10px;
 
   ${props => props.fixed && css`
     {

@@ -7,7 +7,7 @@ export const Article = styled.article`
 
 export const ImgWrapper = styled.div`
   border-radius: 10px;
-  display: bloc;
+  display: block;
   height: 0;
   overflow: hidden;
   padding: 56.25% 0 0 0;

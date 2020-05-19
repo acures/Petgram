@@ -2,7 +2,8 @@ const HtmlWbpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   output: {
-    filename: 'app.buncdle.js'
+    filename: 'app.buncdle.js',
+    publicPath: '/'
   },
   plugins: [
     new HtmlWbpackPlugin({

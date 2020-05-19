@@ -31,7 +31,7 @@ export const ListOfCategories = () => {
           ? DEFAULT_CATEGORIES.map(load => <Loader key={load} />)
           : categories.map(category => (
             <Item key={category.id}>
-              <Category {...category} />
+              <Category {...category} path={`/pet/${category.id}`} />
             </Item>
           ))
       }

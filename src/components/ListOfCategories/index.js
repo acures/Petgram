@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Category } from '../Category'
-import { Loader } from '../Loader'
+import { CategorySkeleton } from '../../skeleton/CategorySkeleton'
 import { List, Item } from './styles'
 import { useCategoriesData } from '../../hooks/useCategoriesData'
 
@@ -28,7 +28,11 @@ export const ListOfCategories = () => {
     <List fixed={fixed}>
       {
         loading
-          ? DEFAULT_CATEGORIES.map(load => <Loader key={load} />)
+          ? DEFAULT_CATEGORIES.map(load => (
+            <Item key={load}>
+              <CategorySkeleton />
+            </Item>
+          ))
           : categories.map(category => (
             <Item key={category.id}>
               <Category {...category} path={`/pet/${category.id}`} />

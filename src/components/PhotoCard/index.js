@@ -1,5 +1,6 @@
 import React from 'react'
 import { useMutation } from '@apollo/react-hooks'
+import { Link } from '@reach/router'
 import { ImgWrapper, Img, Article } from './styles'
 import { useLazyLoad } from '../../hooks/useLazyLoad'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
@@ -28,11 +29,11 @@ export const PhotoCardComponent = ({ id, likes = 0, src = DEFAULT_IMG }) => {
       {
         show && (
           <>
-            <a href={`/?detail=${id}`}>
+            <Link to={`/detail/${id}`}>
               <ImgWrapper>
                 <Img src={src} />
               </ImgWrapper>
-            </a>
+            </Link>
 
             <FavButton likes={likes} liked={liked} onClick={handleFavClick} />
           </>
